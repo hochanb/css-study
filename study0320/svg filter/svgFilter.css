@@ -1,0 +1,38 @@
+.container{
+    margin: 200px auto;
+    width:800px;
+    height:600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    filter: blur(10px) contrast(20);
+}
+
+.circle{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    background: black;
+    position: absolute;
+
+transform: translate(-50%, -50%);
+}
+
+#circle1{
+    animation: moveCircle1 1s infinite linear alternate-reverse;
+}
+
+@keyframes moveCircle1{
+    from{left:40%;}
+    to{left:45%;}
+}
+
+
+#circle2{
+    animation: moveCircle2 1s infinite linear alternate-reverse;
+}
+
+@keyframes moveCircle2{
+    from{left:60%;}
+    to{left:55%;}
+}
