@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    background:#fff; /*백그라운드 색이 반드시 필요!!*/
     filter: blur(10px) contrast(20);
 }
 
@@ -12,13 +13,13 @@
     width:200px;
     height:200px;
     border-radius: 50%;
-    background: black;
     position: absolute;
-
-transform: translate(-50%, -50%);
+    
+    transform: translate(-50%, -50%);
 }
 
 #circle1{
+    background: rgb(51, 200, 238);
     animation: moveCircle1 1s infinite linear alternate-reverse;
 }
 
@@ -29,6 +30,7 @@ transform: translate(-50%, -50%);
 
 
 #circle2{
+    background: rgb(199, 54, 54);
     animation: moveCircle2 1s infinite linear alternate-reverse;
 }
 
