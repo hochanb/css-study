@@ -1,13 +1,13 @@
 
-createBuildings(document.getElementById('skyline1'), 40, 5);
-createBuildings(document.getElementById('skyline2'),20,4);
-createBuildings(document.getElementById('skyline3'),10,3);
+createBuildings(document.getElementById('skyline1'), 64, 5);
+createBuildings(document.getElementById('skyline2'),64,4);
+createBuildings(document.getElementById('skyline3'),64,3);
 
 function createBuildings(skyline, size, z_index) {
-    let w = window.innerWidth;
+    let w = window.innerWidth-40;
 
     while (w > size * 2) {
-        let step = 8;
+        let step = parseInt(size/8);
         let ranW = Math.floor((0.5 + Math.random()) * 0.8 * size / step) * step;
         let ranH = Math.floor((0.8 + Math.random() * 2.5) * size / step) * step;
         let ranOffset = Math.floor((Math.random() - 0.5) * size / step) * step;
@@ -24,7 +24,7 @@ function createBuildings(skyline, size, z_index) {
 
     /* 마지막 채워주기 */
     let step = 8;
-    let ranW = Math.floor(w/step) * step;
+    let ranW = Math.floor(w / step) * step;
     let ranH = Math.floor((0.8 + Math.random() * 2.5) * size / step) * step;
     let ranOffset = 0;
     let building = document.createElement('span');

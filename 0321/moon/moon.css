@@ -5,14 +5,15 @@
 }
 
 body{
-    background: var(--sky-night);
-
+    background: #000;
+    margin:10px;
 }
 
 #back{
     margin:0;
     padding:0;
     height: 800px;
+    width: 100%;
     min-width: 400px;
     min-height: 400px;
     background: var(--sky-night);
@@ -46,14 +47,31 @@ body{
     position: absolute;
     bottom:0;
 }
-#skylineContainer::after{
+.base{
+    position: absolute;
     display: block;
+    bottom:0;
     content:'';
     width:100%;
+}
+#base1{
+    height:80px;
+    background: #555;
+    z-index: 3;
+}
+#base2{
+    height:60px;
+    background: #333;
+    z-index: 4;
+}
+#base3{
     height:40px;
-    background: #fff;
+    background: #111;
+    z-index: 5;
 }
 .skyline{
+    position: absolute;
+    bottom: 0;
     display: flex;
     align-items: flex-end;
     padding:0 10px;
@@ -62,8 +80,18 @@ body{
 
 .building{
     position: relative;
-    bottom: -10px;
+    bottom: 10px;
     display: inline-block;
     content:'';
-    background:#fff;
+}
+.skyline:nth-child(1) .building{
+    background: #111;
+}
+.skyline:nth-child(2) .building{
+    background: #333;
+    bottom: 40px;
+}
+.skyline:nth-child(3) .building{
+        background: #555;
+    bottom:80px;
 }
