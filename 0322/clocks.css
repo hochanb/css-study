@@ -44,11 +44,26 @@ input{
     height: 16px;
     border-radius: 50%;
     background: #ddd;
-    border: 4px solid #888;
+    border: 4px solid #666;
 
-    :hover{
+}
 
-    }
+#labels > label:hover{
+    background: #fff;
+}
+
+
+#sel1:checked ~ #labels > label:nth-child(1){
+    background:#666;
+}
+#sel2:checked ~ #labels > label:nth-child(2){
+    background:#666;
+}
+#sel3:checked ~ #labels > label:nth-child(3){
+    background:#666;
+}
+#sel4:checked ~ #labels > label:nth-child(4){
+    background:#666;
 }
 
 #sel1:checked ~ #board .clock:nth-child(1){
