@@ -17,22 +17,24 @@
 
     <div id="board">
         
-        <div class="clock">
+        <div class="clock_back">
             <div id="clock1">
-                <div class="digitalDisplay_Time"></div>
-                <div class="digitalDisplay_Date"></div>
+                <div class="center_display">
+                    <h2 class="digitalDisplay_Time"></h2>
+                    <h2 class="digitalDisplay_Date"></h2>
+                </div>
             </div>
         </div>
         
-        <div class="clock">
+        <div class="clock_back">
 
         </div>
 
-        <div class="clock">
+        <div class="clock_back">
 
         </div>    
         
-        <div class="clock">
+        <div class="clock_back">
 
         </div>
 
@@ -45,30 +47,35 @@
             <label for="sel4"></label>
         </div>
 
-        <script>
-        
-            var target_Time=document.getElementsByClassName("digitalDisplay_Time");
-            var target_Date=document.getElementsByClassName("digitalDisplay_Date");
-        function update(){
-            var t=new Date();
-            var h= addZero(t.getHours());
-            var m=addZero(t.getMinutes());
-            var s=addZero(t.getSeconds());
-            var time=t+" : "+m+" : "+s;
-            var d=t.toLocaleDateString();
+    <script>
+    
+    var target_Time=document.querySelectorAll(".digitalDisplay_Time");
+    var target_Date=document.querySelectorAll(".digitalDisplay_Date");
 
-            target_Time.forEach(element => {
-                element.textContent=time;
-            });
-            target_Date.forEach(element => {
-                element.textContent=d;
-            });
-        }
+    update();
+    setInterval(update,1000);
 
-        function addZero(num) { return (num < 10 ? '0'+num : ''+num); }
+    function update(){
+        var t=new Date();
+        var h= addZero(t.getHours());
+        var m=addZero(t.getMinutes());
+        var s=addZero(t.getSeconds());
+        var time=h+" : "+m+" : "+s;
+        var date=t.toLocaleDateString();
+
+        target_Time.forEach(element => {
+            element.textContent=time;
+        });
+        target_Date.forEach(element => {
+            element.textContent=date;
+        });
+
+    }
+
+    function addZero(num) { return (num < 10 ? '0'+num : ''+num); }
 
 
 
-        </script>
+    </script>
 </body>
 </html>
