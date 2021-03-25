@@ -40,7 +40,8 @@
 #sel1:checked ~ #board .clock_back:nth-child(1),
 #sel2:checked ~ #board .clock_back:nth-child(2),
 #sel3:checked ~ #board .clock_back:nth-child(3),
-#sel4:checked ~ #board .clock_back:nth-child(4)
+#sel4:checked ~ #board .clock_back:nth-child(4),
+#sel5:checked ~ #board .clock_back:nth-child(5)
 {
     visibility: visible;
     opacity: 1;
@@ -89,7 +90,8 @@ input[type="radio"]{
 #sel1:checked ~ #labels > label:nth-child(1),
 #sel2:checked ~ #labels > label:nth-child(2),
 #sel3:checked ~ #labels > label:nth-child(3),
-#sel4:checked ~ #labels > label:nth-child(4)
+#sel4:checked ~ #labels > label:nth-child(4),
+#sel5:checked ~ #labels > label:nth-child(5)
 {
     border: 2px solid rgba(192, 192, 192, 0.774);
     background:rgba(255, 255, 255, 0.966);
@@ -233,7 +235,7 @@ input[type="radio"]{
 /*clock4*/
 /*used multi layers to soften shadows*/
 .clock_back:nth-child(4){
-    --base-color:rgb(165, 115, 199);
+    --base-color:rgb(128, 72, 165);
     background:var(--base-color);
 }
 
@@ -299,10 +301,72 @@ input[type="radio"]{
 #clock4 .digitalDisplay_Date{
     text-align: center;
     font-size: 20px;
-    color:rgba(26, 77, 26, 0.5);
+    color:rgba(61, 26, 77, 0.5);
     opacity: 0;
     transition:1.5s 0.5s;
 }
 #sel4:checked ~#board #clock4 .digitalDisplay_Date{
+    opacity: 1;
+}
+
+/*clock5*/
+
+.clock_back:nth-child(5){
+    --base-color:linear-gradient(45deg,rgb(235, 127, 190), rgb(93, 220, 252));
+    --gradient1:linear-gradient(45deg, rgb(255, 151, 151),rgb(161, 197, 252));
+    background:var(--base-color);
+}
+#sel5:checked ~ #board .clock_back:nth-child(5){
+
+}
+#clock5{
+    transition: 1s 0.5s;
+    display: inline-block;
+    position: relative;
+    background:rgba(255,255,255,0.1);
+    width:400px;
+    height:200px;
+    box-shadow: 8px 4px 8px rgba(0,0,0,0.2), inset 0 2px 2px rgba(255,255,255,0.2), 
+                inset 0 -2px 2px rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+#sel5:checked ~ #board #clock5{
+}
+@keyframes rotateHue{
+    from{filter:hue-rotate(0deg);}
+    to{filter:hue-rotate(360deg);}
+}
+
+/* #board #clock5::after{
+    content: '';
+    position: absolute;
+    top:20px;
+    left:20px;
+    bottom:20px;
+    right:20px;
+    background: rgba(255,255,255,0.5);
+} */
+#clock5 .digitalDisplay_Time{
+    text-align: center;
+    font-size: 40px;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 0 3px rgba(255,255,255,0.3);
+    filter:brightness(1.5);
+    opacity: 0;
+    transition:1.5s 0.6s;
+    font-weight:900;
+
+}
+#sel5:checked ~#board #clock5 .digitalDisplay_Time{
+    opacity:1;
+}
+#clock5 .digitalDisplay_Date{
+    text-align: center;
+    font-size: 20px;
+    color:rgba(26, 77, 26, 0.5);
+    opacity: 0;
+    transition:1.5s 0.5s;
+}
+#sel5:checked ~#board #clock5 .digitalDisplay_Date{
     opacity: 1;
 }
