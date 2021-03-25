@@ -185,7 +185,7 @@ input[type="radio"]{
 /*clock3*/
 
 .clock_back:nth-child(3){
-    --base-color:rgb(89, 167, 65);
+    --base-color:rgb(106, 187, 81);
     background:var(--base-color);
 }
 
