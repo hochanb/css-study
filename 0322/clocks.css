@@ -41,7 +41,9 @@
 #sel2:checked ~ #board .clock_back:nth-child(2),
 #sel3:checked ~ #board .clock_back:nth-child(3),
 #sel4:checked ~ #board .clock_back:nth-child(4),
-#sel5:checked ~ #board .clock_back:nth-child(5)
+#sel5:checked ~ #board .clock_back:nth-child(5),
+#sel6:checked ~ #board .clock_back:nth-child(6)
+
 {
     visibility: visible;
     opacity: 1;
@@ -91,7 +93,9 @@ input[type="radio"]{
 #sel2:checked ~ #labels > label:nth-child(2),
 #sel3:checked ~ #labels > label:nth-child(3),
 #sel4:checked ~ #labels > label:nth-child(4),
-#sel5:checked ~ #labels > label:nth-child(5)
+#sel5:checked ~ #labels > label:nth-child(5),
+#sel6:checked ~ #labels > label:nth-child(6)
+
 {
     border: 2px solid rgba(192, 192, 192, 0.774);
     background:rgba(255, 255, 255, 0.966);
@@ -316,40 +320,29 @@ input[type="radio"]{
     --gradient1:linear-gradient(45deg, rgb(255, 151, 151),rgb(161, 197, 252));
     background:var(--base-color);
 }
-#sel5:checked ~ #board .clock_back:nth-child(5){
 
-}
 #clock5{
     transition: 1s 0.5s;
     display: inline-block;
     position: relative;
     background:rgba(255,255,255,0.1);
-    width:400px;
-    height:200px;
+    width:60vmin;
+    height:30vmin;
     box-shadow: 8px 4px 8px rgba(0,0,0,0.2), inset 0 2px 2px rgba(255,255,255,0.2), 
                 inset 0 -2px 2px rgba(0,0,0,0.2);
-    border-radius: 20px;
+    border-radius: 3vmin;
+    backdrop-filter: blur(10px);
 }
-#sel5:checked ~ #board #clock5{
-}
+
 @keyframes rotateHue{
     from{filter:hue-rotate(0deg);}
     to{filter:hue-rotate(360deg);}
 }
 
-/* #board #clock5::after{
-    content: '';
-    position: absolute;
-    top:20px;
-    left:20px;
-    bottom:20px;
-    right:20px;
-    background: rgba(255,255,255,0.5);
-} */
 #clock5 .digitalDisplay_Time{
     text-align: center;
-    font-size: 40px;
-    color: rgba(255,255,255,0.8);
+    font-size: 8vmin;
+    color: rgba(255, 255, 255, 0.39);
     text-shadow: 0 0 3px rgba(255,255,255,0.3);
     filter:brightness(1.5);
     opacity: 0;
@@ -362,11 +355,94 @@ input[type="radio"]{
 }
 #clock5 .digitalDisplay_Date{
     text-align: center;
-    font-size: 20px;
-    color:rgba(26, 77, 26, 0.5);
+    font-size:4vmin;
+    color:rgba(70, 70, 70, 0.342);
     opacity: 0;
     transition:1.5s 0.5s;
 }
 #sel5:checked ~#board #clock5 .digitalDisplay_Date{
+    opacity: 1;
+}
+#sel5:checked ~ #board #balls{
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+.ball{
+    position: absolute;
+    border-radius: 100%;
+    transform: translate(-50%,-50%);
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.05);
+}
+.ball:nth-child(1){
+    width:40vmax;
+    height:40vmax;
+    top:3vmax;
+    left:10vmax;
+background-image: linear-gradient( 109.6deg,  rgba(247,202,201,1) 20.6%, rgba(146,168,209,1) 85.9% );
+}
+
+.ball:nth-child(2){
+    width:68vmax;
+    height:68vmax;
+    top:62vmax;
+    left:78vmax;
+    background-image: linear-gradient( 109.6deg,  rgba(238,58,136,1) 11.2%, rgba(128,162,245,1) 91.1% );
+}
+
+/*clock6*/
+
+.clock_back:nth-child(6){
+    --base-color:linear-gradient( 181deg,  rgba(225,109,245,1) 6.9%, rgba(78,248,231,1) 112.8% );
+    background:#222;
+}
+
+#clock6{
+    transition: 1s 0.5s;
+    display: inline-block;
+    position: relative;
+    background:transparent;
+    width:400px;
+    height:200px;
+    border-radius: 100px;;
+    box-shadow: none;
+}
+#sel6:checked ~#board #clock6{
+    background: var(--base-color);
+    animation: rotateHue 6s infinite linear;
+}
+#clock6 .center_display{
+    position: absolute;
+    width:auto;
+    height: auto;
+    top:8px;
+    left:8px;
+    bottom: 8px;
+    right: 8px;
+    z-index: 2;
+    background: #222;
+    border-radius: 92px;
+}
+
+#clock6 .digitalDisplay_Time{
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    opacity: 0;
+    transition:1.5s 0.6s;
+    font-weight:900;
+
+}
+#sel6:checked ~#board #clock6 .digitalDisplay_Time{
+    opacity:1;
+}
+#clock6 .digitalDisplay_Date{
+    text-align: center;
+    font-size: 20px;
+    color:#aaa;
+    opacity: 0;
+    transition:1.5s 0.5s;
+}
+#sel6:checked ~#board #clock6 .digitalDisplay_Date{
     opacity: 1;
 }
