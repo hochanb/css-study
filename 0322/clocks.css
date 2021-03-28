@@ -42,7 +42,8 @@
 #sel3:checked ~ #board .clock_back:nth-child(3),
 #sel4:checked ~ #board .clock_back:nth-child(4),
 #sel5:checked ~ #board .clock_back:nth-child(5),
-#sel6:checked ~ #board .clock_back:nth-child(6)
+#sel6:checked ~ #board .clock_back:nth-child(6),
+#sel7:checked ~ #board .clock_back:nth-child(7)
 
 {
     visibility: visible;
@@ -94,7 +95,9 @@ input[type="radio"]{
 #sel3:checked ~ #labels > label:nth-child(3),
 #sel4:checked ~ #labels > label:nth-child(4),
 #sel5:checked ~ #labels > label:nth-child(5),
-#sel6:checked ~ #labels > label:nth-child(6)
+#sel6:checked ~ #labels > label:nth-child(6),
+#sel7:checked ~ #labels > label:nth-child(7)
+
 
 {
     border: 2px solid rgba(192, 192, 192, 0.774);
@@ -487,4 +490,64 @@ input[type="radio"]{
 }
 #sel6:checked ~#board #clock6 .digitalDisplay_Date{
     opacity: 1;
+}
+
+
+
+/*clock7*/
+.clock_back:nth-child(7){
+    --base-color:rgb(36, 36, 36);
+    background:var(--base-color);
+}
+#clock7{
+    transition: 1s 0.5s;
+    display: inline-block;
+    background:transparent;
+    width:80vmin;
+    height:80vmin;
+    border-radius: 50%;
+    box-shadow: none;
+    border:6vmin solid var(--base-color);
+}
+#sel7:checked ~#board #clock7{
+    background: var(--base-color);
+    box-shadow: -2vmin -2vmin 4vmin rgba(160, 160, 160, 0.1), 2vmin 2vmin 4vmin rgba(0, 0, 0, 0.4),
+            inset 0.5vmin 0.5vmin 4vmin rgba(0, 0, 0, 0.4), inset -0.5vmin -0.5vmin 4vmin rgba(160, 160, 160, 0.1);
+}
+
+#sel7:checked ~#board  .dial{
+    transition: 2s 0.3s;
+    position: absolute;
+    transform: rotate(calc(var(--i)*30deg)) translate(27vmin,0);
+    width:6vmin;
+    height:2vmin;
+    border-radius: 1vmin;
+    background: rgb(14, 14, 14);
+}
+
+#sel7:checked ~#board #hourNeedle{
+    transition: 1.6s 0.4s;
+    position: absolute;
+    --m:0;
+    width:1.8vmin;
+    height:12vmin;
+    border-radius: 0.9vmin;
+    transform: rotate(calc(var(--m)*0.5deg)) translate(0,calc(-50% - 2vmin));
+    --color:rgb(176, 197, 250);
+    background: var(--color);
+    box-shadow: 0 0 2vmin var(--color);
+    filter:brightness(1.2);
+}
+#sel7:checked ~#board #minuteNeedle{
+    transition: 1.6s 0.4s;
+    position: absolute;
+    --m:0;
+    width:1.4vmin;
+    height:18vmin;
+    border-radius: 0.7vmin;
+    transform: rotate(calc(var(--m)*0.5deg)) translate(0,calc(-50% - 2vmin));
+    --color:rgb(250, 176, 231);
+    background: var(--color);
+    box-shadow: 0 0 2vmin var(--color);
+    filter:brightness(1.2);
 }
